@@ -1,0 +1,46 @@
+<mat-toolbar class= "custom-header" >
+    <mat-toolbar-row>
+      <button mat-icon-button (click)="toggleSideBar()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>
+        <img src="../../../../../assets/logo.png" style=" width: 50%;height: 15%;margin-left: -20px;">
+      </span>
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <ul style="list-style-type: none;" fxLayout="row" fxLayoutGap="20px">
+          <!-- <li>
+            <button
+              mat-icon-button
+              color="light"
+              aria-label="Example icon button with a home icon"
+            >
+              <mat-icon>settings</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button
+              mat-icon-button
+              color="light"
+              aria-label="Example icon button with a home icon"
+            >
+              <mat-icon>help_outline</mat-icon>
+            </button>
+          </li> -->
+          <li>
+            <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon>personal_outline</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="signOut()">
+                  <mat-icon>
+                      exit_to_app
+                  </mat-icon>
+                  signout
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  

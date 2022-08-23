@@ -1,0 +1,17 @@
+export const formErrorMessages={
+    USERNAME_REQUIRED:"*Username is required",
+    EMAILID_REQUIRED:"*Email id is required",
+    EMAILID_FORMAT:"*Please enter valid email id",
+    PASSWORD_REQUIRED:"*Password is required",
+    PASSWORD_FORMAT:"*Password should be 1 uppercase 1 lowercase and 1 numeric value",
+    PASSWORD_MATCH:"*Password is not matching",
+    CONTACT_REQUIRED:"*Please enter contact number",
+    FIRSTNAME_REQUIRED:"*Please enter first name",
+    LASTNAME_REQUIRED:"*Please enter last name",
+    AGE_REQUIRED: "*Please enter age",
+    RACE_REQUIRED:"*Please enter race",
+    ETHNICITY_REQUIRED:"*Please enter ethnicity",
+    LANGUAGEKNOWN_REQUIRED:"*Please enter known languages",
+    HOMEADDRESS_REQUIRED:"*Please enter home address",
+    RELATIONSHIP_REQUIRED:"*Please enter relationship",
+}

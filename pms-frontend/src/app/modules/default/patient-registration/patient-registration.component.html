@@ -1,0 +1,80 @@
+<mat-card-content>
+    <div fxLayoutAlign="center center" fxFlexFill>
+        <form [formGroup]="form" (submit)="submitregistrationForm()">
+            <div fxLayoutAlign="center center" fxFlexFill>
+                <h1>Patient Registration</h1>
+            </div>
+            <div fxLayout ="row" fxLayoutGap="10px" fxLayoutAlign="center center" fxLayout.xs="column">
+            <mat-form-field appearance="outline" >
+                <mat-label>Title</mat-label>
+                <mat-select formControlName="title">
+                  <mat-option value="Mr.">Mr.</mat-option>
+                  <mat-option value="Ms.">Ms.</mat-option>
+                  <mat-option value="Mrs.">Mrs.</mat-option>
+                  <mat-option value="Dr.">Dr.</mat-option>
+                </mat-select>
+              </mat-form-field>
+             
+              <mat-form-field appearance="outline">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput formControlName="firstname" required >
+                <span *ngIf="checkTouchedAndInvalid('firstname')"
+                    class="error">{{errormessage.FIRSTNAME_REQUIRED}} </span>
+            </mat-form-field><br>
+             
+              <mat-form-field appearance="outline">
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput formControlName="lastname" required >
+                <span *ngIf="checkTouchedAndInvalid('lastname')"
+                    class="error">{{errormessage.LASTNAME_REQUIRED}} </span>
+              </mat-form-field>
+            </div>
+              <br>
+            <div fxLayout ="row" fxLayoutGap="10px" fxLayoutAlign="center center" fxLayout.xs="column">
+            <mat-form-field appearance="outline" class="dob" > 
+                <mat-label>DOB:</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob" [max]="maxDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="username">
+              <mat-label>Username</mat-label>
+              <input type="email" matInput formControlName="username" required >
+              <span *ngIf="checkTouchedAndInvalid('username')"
+                  class="error">{{errormessage.USERNAME_REQUIRED}} </span>
+          </mat-form-field><br>                                    
+              
+            <mat-form-field appearance="outline" >
+                <mat-label>Contact number</mat-label>
+                <input matInput type="number" formControlName="contactnumber" required>
+                <span *ngIf="checkTouchedAndInvalid('contactnumber')"
+                class="error">{{errormessage.CONTACT_REQUIRED}} </span>            
+              </mat-form-field>
+            </div>
+            <div fxLayout ="row" fxLayoutGap="8%" fxLayoutAlign="center center" fxLayout.xs="column" >
+              <mat-form-field appearance="outline" class="password">
+                <mat-label>Password</mat-label>
+                <input type="password" matInput formControlName="password" required [(ngModel)]="password">
+                <span *ngIf="checkTouchedAndInvalid('password')"
+                    class="error">{{errormessage.PASSWORD_REQUIRED}}</span>
+            </mat-form-field><br>                          
+           
+            <mat-form-field appearance="outline">
+              <mat-label>Confirm Password</mat-label>
+                <input matInput formControlName="confirmpassword"  required type="password"  [(ngModel)]="confirmpassword">
+                <span *ngIf="checkTouchedAndInvalid('confirmpassword')" class="error">
+                    {{errormessage.PASSWORD_REQUIRED}} </span>
+                <span *ngIf="password!=confirmpassword" class="error">
+                    {{errormessage.PASSWORD_MATCH}} </span>
+            </mat-form-field><br>
+            </div>
+              <br>
+              <div fxLayout ="row" fxLayoutGap="10px" fxLayoutAlign="center center">
+                <button [disabled]="!(form.invalid==false  && (password==confirmpassword)==true)" mat-raised-button color='primary'>Submit</button>
+                <button mat-raised-button color='light'routerLink="/">Login</button>
+                
+              </div>
+        </form>
+    </div>
+</mat-card-content>
